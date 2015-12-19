@@ -1,0 +1,21 @@
+<% include formatting/header.ejs%>
+<div>
+    <% if(rs.length > 0) { %>
+    <table border="1">
+        <tr><th>Match ID</th><th>Date Played</th><th>Winning Team</th><th>Match Duration</th><th>Match Type</th></tr>
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td><a href="/matches/?mID=<%= rs[i].mID %>"> <%= rs[i].matchID %></td></a><td><%= rs[i].date %></td>
+            <td><%= rs[i].winningTeam %></td><td><%= rs[i].matchDur %></td><td><%= rs[i].matchType %></td>
+        </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+    No matches are entered into the Match database table.
+    <% } %>
+</div>
+
+<div style="margin-top:10px;">
+    <a href="/matches/create">Create New Match Record</a>
+</div>
+<% include formatting/footer.ejs%>

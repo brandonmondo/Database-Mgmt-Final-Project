@@ -1,0 +1,21 @@
+<% include formatting/header.ejs%>
+<div>
+    <% if(rs.length > 0) { %>
+    <table border="1">
+        <tr><th>Match ID</th><th>Player Name</th><th>Total Wins</th><th>Total Losses</th></tr>
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td><a href="/playedIns/?mID=<%= rs[i].mID %>&sID=<%=rs[i].sID%>"> <%= rs[i].matchID %></td></a><td><%= rs[i].pName %></td>
+            <td><%= rs[i].totalWins %></td><td><%= rs[i].totalLosses %></td>
+        </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+    No matches are entered into the Player Match database table.
+    <% } %>
+</div>
+
+<div style="margin-top:10px;">
+    <a href="/playedIns/create">Enter New Player Match Information</a>
+</div>
+<% include formatting/footer.ejs%>

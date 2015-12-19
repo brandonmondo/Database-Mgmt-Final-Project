@@ -1,0 +1,21 @@
+<% include formatting/header.ejs%>
+<div>
+    <% if(rs.length > 0) { %>
+    <table border="1">
+        <tr><th>Hero Name</th><th>Ability</th><th>Ability Description</th></tr>
+        <% for (var i=0; rs.length > i; i++) { %>
+        <tr>
+            <td><a href="/abilities/?hID=<%= rs[i].hID %>"> <%= rs[i].hName %></td></a><td><%= rs[i].abilName %></td>
+            <td><%= rs[i].abilDescrip %></td>
+        </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+    No abilities are entered into the Ability database table.
+    <% } %>
+</div>
+
+<div style="margin-top:10px;">
+    <a href="/matches/create">Create New Ability</a>
+</div>
+<% include formatting/footer.ejs%>
